@@ -1,94 +1,67 @@
-
 # Exchange Days Management
 
-Welcome to the Exchange Days Management Web App! This application helps you participate in Exchange Days by viewing workshops and training events, registering easily, and providing feedback to continuously improve your experience. You can find it here: http://193.196.54.172:8000.
+A web app for Exchange Days: browse workshops and training events, register for them, confirm attendance via QR code and give feedback.
 
----
+Built with Spring Boot (backend) and Vue 3 + Vite (frontend).
 
-## How to Use the App
+## Features
 
-1. Clone this repository:
+- View and register for Exchange Days and workshops
+- Create Exchange Days and workshops (admins only)
+- QR-code based attendance confirmation
+- Feedback for attended workshops, with automatically generated summaries for organizers
+- Responsive design for desktop and mobile
 
-```
-git clone <https://github.tik.uni-stuttgart.de/iste-sopra-2024-itestra/team-20>
-cd team-20
-```
+## How It Works
 
-2. Install the required software:
+- **Registration:** After signing up you land on the main page, which lists all Exchange Days and their workshops.
+- **Navigation:** The sidebar on the left switches between views.
+- **Creating events:** Admins can add new Exchange Days and workshops via the *Create* button. New entries show up on the main page immediately.
+- **Attendance:** Each workshop organizer gets a unique QR code for their event. Scanning it confirms the logged-in user's attendance and unlocks the feedback form.
+- **Feedback:** Feedback is analyzed automatically. Organizers can view the results under *Meine Events*.
 
-- JDK 21 or higher
+## Getting Started
 
+### Requirements
+
+- JDK 21+
 - Maven
+- Node.js (on your `PATH`)
+- MariaDB on `localhost:3306` with a database named `eaplanner` (credentials in `backend/src/main/resources/application.properties`)
 
-- Node.js (ensure the installation path is added to your PATH).
+### Setup
 
-3. Start the backend:
-
+```bash
+git clone https://github.com/MaximilianRau04/Exchange-Day-Manager.git
+cd Exchange-Day-Manager
 ```
-cd ./backend
+
+Start the backend (runs on port 8080):
+
+```bash
+cd backend
 mvn spring-boot:run
 ```
 
-4. Start the frontend:
+Start the frontend in a second terminal (Vite proxies API requests to the backend):
 
-```
-cd ./frontend
+```bash
+cd frontend
 npm install
 npm run dev
 ```
 
+Alternatively, `./start.sh` starts both in detached `screen` sessions (frontend on port 8000) and `./stop.sh` stops them.
 
-## How to Test the App
+### Tests
 
-Follow the steps in [How to Use the App](#how-to-use-the-app) to set up the environment.
-
-1. Open a terminal and navigate to the /backend folder:
-```
-cd ./backend
-```
-
-2. Run the tests:
-
-```
+```bash
+cd backend
 mvn test
 ```
----
-
-## How the App Works
-
-**Registration**: After registering, you are redirected to the main page, where the app fetches all saved Exchange Days and their workshops from the database.
-
-**Navigation**: The sidebar on the left allows seamless switching between components.
-
-**Creating Events**: Use the Create button to add a new Exchange Day or Workshop. Newly created entries appear on the main page automatically. This feature is only available for admins.
-
-**Attendance**: Workshop Organizers get a QR-Code that is uniquely generated for the respective event. Scanning this QR-Code confirms the attendance of the logged in user and allows them to provide feedback.
-
-**Feedback**: Collected feedback is automatically analyzed and can be displayed under *Meine Events* as the organizer of the workshop.
-
-
-## Features
-
-View and register for Exchange Days and workshops.
-
-Create new Exchange Days and workshops using an intuitive interface.
-
-Provide feedback to improve future events.
-
-Responsive design for a seamless experience across devices.
-
-Display Feedback Summaries for finished workshops.
-
----
 
 ## Documentation
 
-Check out the [API Documentation](docs/API.md) for implemented API endpoints.
+- [API documentation](docs/API.md)
 
-## Developer Contacts
 
-Deniz Altunkapan (3721629) [st187784@stud.uni-stuttgart.de](st187784@stud.uni-stuttgart.de)
-</br></br>
-Maximilian Peresunchak (3232875) [st152466@stud.uni-stuttgart.de](st152466@stud.uni-stuttgart.de)
-</br></br>
-Maximilian Rau (3731389) [st188391@stud.uni-stuttgart.de](st188391@stud.uni-stuttgart.de)
