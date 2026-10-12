@@ -4,6 +4,8 @@ A web app for Exchange Days: browse workshops and training events, register for 
 
 Built with Spring Boot (backend) and Vue 3 + Vite (frontend).
 
+![Exchange Day overview with workshops and location map](docs/screenshots/exchange-day.webp)
+
 ## Features
 
 - View and register for Exchange Days and workshops
